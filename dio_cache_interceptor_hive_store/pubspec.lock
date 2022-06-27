@@ -88,10 +88,12 @@ packages:
   dio_cache_interceptor:
     dependency: "direct main"
     description:
-      name: dio_cache_interceptor
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.2.4"
+      path: dio_cache_interceptor
+      ref: HEAD
+      resolved-ref: "5df9fb7cb57e5852071e18045f7536c684af06d0"
+      url: "https://github.com/apps-as/dio_cache_interceptor.git"
+    source: git
+    version: "3.2.7"
   file:
     dependency: transitive
     description:
