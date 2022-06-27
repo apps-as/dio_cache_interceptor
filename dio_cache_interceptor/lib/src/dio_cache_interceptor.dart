@@ -39,7 +39,9 @@ class DioCacheInterceptor extends Interceptor {
 
     // Early ends if policy does not require cache lookup.
     final policy = cacheOptions.policy;
-    if (policy != CachePolicy.request && policy != CachePolicy.forceCache) {
+    if (policy != CachePolicy.request &&
+        policy != CachePolicy.forceCache &&
+        policy != CachePolicy.returnCacheDataDontLoad) {
       handler.next(options);
       return;
     }
