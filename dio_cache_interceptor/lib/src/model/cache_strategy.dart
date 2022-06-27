@@ -76,6 +76,9 @@ class CacheStrategyFactory {
       // Check cached response freshness
       final responseCaching = cache.cacheControl;
 
+      if (cacheOptions.policy == CachePolicy.returnCacheDataDontLoad) {
+        return CacheStrategy(null, cache);
+      }
       if (!responseCaching.noCache &&
           !cache.isExpired(requestCaching: requestCaching)) {
         return CacheStrategy(null, cache);

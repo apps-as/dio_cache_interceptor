@@ -6,6 +6,8 @@ import './store/cache_store.dart';
 import 'model/cache_options.dart';
 import 'util/response_extension.dart';
 
+class DioCacheNotExsistsError implements Exception {}
+
 /// Cache interceptor
 class DioCacheInterceptor extends Interceptor {
   static const String _getMethodName = 'GET';
@@ -60,6 +62,9 @@ class DioCacheInterceptor extends Interceptor {
         true,
       );
       return;
+    } else if (cacheOptions.policy == CachePolicy.returnCacheDataDontLoad) {
+      handler.reject(
+          DioError(requestOptions: options, error: DioCacheNotExsistsError()));
     }
 
     // Requests with conditional request if available

@@ -34,6 +34,11 @@ enum CachePolicy {
   ///
   /// Requests otherwise and caches if response has directives.
   request,
+
+  /// Return cached data if available even if expired.
+  ///
+  /// Throw error otherwise.
+  returnCacheDataDontLoad,
 }
 
 /// Options to apply to handle request and cache behaviour.
