@@ -67,6 +67,7 @@ class DioCacheInterceptor extends Interceptor {
     } else if (cacheOptions.policy == CachePolicy.returnCacheDataDontLoad) {
       handler.reject(
           DioError(requestOptions: options, error: DioCacheNotExsistsError()));
+      return;
     }
 
     // Requests with conditional request if available
